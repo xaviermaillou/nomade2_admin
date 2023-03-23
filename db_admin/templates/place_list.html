@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Places</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Quiet</th>
+        <th>Solo</th>
+        <th>Gathering</th>
+        <th>Wifi</th>
+        <th>Outlet</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for place in places %}
+        <tr>
+          <td>{{ place.name }}</td>
+          <td>{{ place.get_type_display }}</td>
+          <td>{% if place.quiet %}Yes{% else %}No{% endif %}</td>
+          <td>{% if place.solo %}Yes{% else %}No{% endif %}</td>
+          <td>{% if place.gathering %}Yes{% else %}No{% endif %}</td>
+          <td>{% if place.wifi %}Yes{% else %}No{% endif %}</td>
+          <td>{% if place.outlet %}Yes{% else %}No{% endif %}</td>
+          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
